@@ -3,13 +3,13 @@ import Tree from "./Tree";
 import Bird from "./Bird";
 import Empty from "./Empty";
 
-function Road_404_MiddleLineGenerator({road}){
+function Road_404_MiddleLineGenerator({road, playerOffsetSetterAction}){
     let result = [];
 
     road.forEach((roadValue, index) => {
         switch (roadValue){
             case -1:
-                result.push(<Player key={`Player_${index}`}></Player>)
+                result.push(<Player key={`Player_${index}`} playerOffsetSetterAction={playerOffsetSetterAction}></Player>)
                 break;
             default:
                 result.push(<Empty key={`Empty_${index}`}></Empty>)

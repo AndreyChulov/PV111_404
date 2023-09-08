@@ -1,18 +1,20 @@
-import {useRef} from "react";
+import {useRef, useEffect} from "react";
 
-function Empty({getTdSizeAction, timeout}){
+function Empty({getTdSizeAction}){
     const td = useRef(null);
 
     function GetTdSizeAction() {
         return td.current == null ? null : td.current.offsetWidth;
     }
 
-    if (getTdSizeAction != undefined){
-        setTimeout(()=> getTdSizeAction(GetTdSizeAction), timeout);
-    }
+    useEffect(() => {
+        if (getTdSizeAction != undefined){
+            getTdSizeAction(GetTdSizeAction);
+        }
+    })
 
     return (
-        <td ref={td}></td>
+        <td ref={td}><div></div></td>
     )
 }
 
