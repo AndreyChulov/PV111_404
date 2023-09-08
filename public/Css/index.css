@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+table tr {
+    width: 100%;
+}
+
+body > table > tbody > tr:nth-child(2n){
+    background: brown;
+    color: brown;
+}
